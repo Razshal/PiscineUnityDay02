@@ -10,11 +10,26 @@ public class enemyScript : MonoBehaviour {
     public bool isBuilding = false;
     public bool isFriendly = false;
     public GameObject townCenter;
+    private AudioSource audioSource;
+    public AudioClip death;
+
+    void Start()
+    {
+        life = maxLife;
+        selectionScript = FindObjectOfType<selectionScript>();
+        audioSource = GetComponent<AudioSource>();
+    }
 
 	private void OnMouseDown()
 	{
         selectionScript.enemyFocus = gameObject;
 	}
+
+    void PlayAudio(AudioClip clip)
+    {
+        audioSource.clip = clip;
+        audioSource.Play();
+    }
 
     public void ReceiveDamages(int damage)
     {
@@ -25,14 +40,12 @@ public class enemyScript : MonoBehaviour {
                 Debug.Log("The Human Team wins.");
             else if (gameObject.tag == "OrcBuilding")
                 townCenter.GetComponentInChildren<spawnerScript>().spawnTiming += 2.5f;
-			Destroy(gameObject);
+			PlayAudio(death);
+            Destroy(gameObject);
         }
         else
             Debug.Log(unitName + " [" + life + "/" + maxLife + "]HP has been attacked");
     }
 
-	void Start () {
-        life = maxLife;
-        selectionScript = FindObjectOfType<selectionScript>();
-	}
+
 }
