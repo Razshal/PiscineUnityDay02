@@ -7,10 +7,11 @@ public class playerScript : MonoBehaviour {
     private Vector3 rotation;
     private AudioSource audioSource;
     private Animator animator;
+    private selectionScript selectionScript;
+
     public bool ignoreClick = false;
     public AudioClip aknowledge;
     public bool selected = false;
-    public selectionScript selectionScript;
 
     public enum Status
     {
@@ -19,11 +20,11 @@ public class playerScript : MonoBehaviour {
     }
     public Status status;
 
-	// Use this for initialization
 	void Start () {
         status = Status.STAY;
         audioSource = GetComponent<AudioSource>();
         animator = GetComponent<Animator>();
+        selectionScript = transform.parent.gameObject.GetComponent<selectionScript>();
 	}
 
     void PlayAudio(AudioClip clip) {
@@ -43,7 +44,6 @@ public class playerScript : MonoBehaviour {
         }
 	}
 
-	// Update is called once per frame
 	void Update () {
         if (!ignoreClick && selected)
         {
