@@ -5,15 +5,34 @@ using UnityEngine;
 public class movementScript : MonoBehaviour {
     private Vector3 target;
     private Vector3 rotation;
+    private AudioSource audioSource;
+    private Animator animator;
+    public AudioClip aknowledge;
+
+    public enum Status
+    {
+        STAY,
+        MOVING
+    }
+    public Status status;
 
 	// Use this for initialization
 	void Start () {
-		
+        status = Status.STAY;
+        audioSource = GetComponent<AudioSource>();
+        animator = GetComponent<Animator>();
 	}
+
+    void PlayAudio(AudioClip clip) {
+        audioSource.clip = clip;
+        audioSource.Play();
+    }
 	
 	// Update is called once per frame
 	void Update () {
+        // Setting rotation and start
         if (Input.GetMouseButtonDown(0)) {
+            PlayAudio(aknowledge);
             target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             rotation = target - transform.position;
             rotation.Normalize();
@@ -21,6 +40,14 @@ public class movementScript : MonoBehaviour {
                 Quaternion.Euler(0f, 0f, Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg - 90);
         }
         if (Vector2.Distance(transform.position, target) > 0.01f)
-            transform.position = Vector2.MoveTowards(transform.position, target, 0.1f);
+        {
+			transform.position = Vector2.MoveTowards(transform.position, target, 0.1f);
+            status = Status.MOVING;
+            animator.SetTrigger("move");
+        }
+        else if (status != Status.STAY) {
+            status = Status.STAY;
+            animator.ResetTrigger("move");
+        }
 	}
 }
