@@ -8,6 +8,7 @@ public class playerScript : MonoBehaviour {
     private AudioSource audioSource;
     private Animator animator;
     private selectionScript selectionScript;
+    private GameObject ennemy;
 
     public bool ignoreClick = false;
     public AudioClip aknowledge;
@@ -32,8 +33,8 @@ public class playerScript : MonoBehaviour {
         audioSource.Play();
     }
 
-	void OnMouseDown()
-	{
+    void OnMouseDown()
+    {
         selectionScript.ThatWasASelectionClick();
         if (Input.GetKey(KeyCode.LeftControl))
             selected = true;
@@ -42,18 +43,18 @@ public class playerScript : MonoBehaviour {
             selectionScript.UnselectAll();
             selected = true;
         }
-	}
+    }
 
-	void Update () {
+    void Update () {
         if (!ignoreClick && selected)
         {
             // Set appropriate rotation
             if (Input.GetMouseButtonDown(0))
             {
-                PlayAudio(aknowledge);
                 target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                rotation = target - transform.position;
-                rotation.Normalize();
+
+                PlayAudio(aknowledge);
+                (rotation = target - transform.position).Normalize();
                 transform.rotation =
                     Quaternion.Euler(0f, 0f, Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg - 90);
                 status = Status.MOVING;

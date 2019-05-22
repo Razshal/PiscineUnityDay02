@@ -171,7 +171,7 @@ GameObject:
   - component: {fileID: 238896248}
   m_Layer: 0
   m_Name: Building_Human
-  m_TagString: Building
+  m_TagString: Human
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -283,7 +283,7 @@ GameObject:
   - component: {fileID: 242515887}
   m_Layer: 0
   m_Name: Building_Orc
-  m_TagString: Building
+  m_TagString: Orc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -399,7 +399,7 @@ GameObject:
   - component: {fileID: 285943488}
   m_Layer: 0
   m_Name: Footman
-  m_TagString: Untagged
+  m_TagString: Human
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -638,7 +638,7 @@ GameObject:
   - component: {fileID: 333002613}
   m_Layer: 0
   m_Name: Building_Orc
-  m_TagString: Building
+  m_TagString: Orc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -800,7 +800,7 @@ GameObject:
   - component: {fileID: 446704339}
   m_Layer: 0
   m_Name: Footman
-  m_TagString: Untagged
+  m_TagString: Human
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1085,7 +1085,7 @@ GameObject:
   - component: {fileID: 853473957}
   m_Layer: 0
   m_Name: Building_Orc
-  m_TagString: Building
+  m_TagString: Orc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1242,7 +1242,7 @@ GameObject:
   - component: {fileID: 979084842}
   m_Layer: 0
   m_Name: Building_Human
-  m_TagString: Building
+  m_TagString: Human
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1354,7 +1354,7 @@ GameObject:
   - component: {fileID: 1089025838}
   m_Layer: 0
   m_Name: Town Center_Human
-  m_TagString: Building
+  m_TagString: Human
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1454,53 +1454,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2, y: 2}
   m_EdgeRadius: 0
---- !u!1001 &1222342002
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4025402357725624, guid: eaa2377e8659d468084d3bb5f9302f62, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 7.0519667
-      objectReference: {fileID: 0}
-    - target: {fileID: 4025402357725624, guid: eaa2377e8659d468084d3bb5f9302f62, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 2.5968933
-      objectReference: {fileID: 0}
-    - target: {fileID: 4025402357725624, guid: eaa2377e8659d468084d3bb5f9302f62, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4025402357725624, guid: eaa2377e8659d468084d3bb5f9302f62, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4025402357725624, guid: eaa2377e8659d468084d3bb5f9302f62, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4025402357725624, guid: eaa2377e8659d468084d3bb5f9302f62, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4025402357725624, guid: eaa2377e8659d468084d3bb5f9302f62, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4025402357725624, guid: eaa2377e8659d468084d3bb5f9302f62, type: 2}
-      propertyPath: m_RootOrder
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 50064167873734732, guid: eaa2377e8659d468084d3bb5f9302f62,
-        type: 2}
-      propertyPath: m_GravityScale
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: eaa2377e8659d468084d3bb5f9302f62, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1 &1338891622
 GameObject:
   m_ObjectHideFlags: 0
@@ -1514,7 +1467,7 @@ GameObject:
   - component: {fileID: 1338891623}
   m_Layer: 0
   m_Name: Town Center_Orc
-  m_TagString: Building
+  m_TagString: Orc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1631,7 +1584,7 @@ GameObject:
   - component: {fileID: 1725930745}
   m_Layer: 0
   m_Name: Footman
-  m_TagString: Untagged
+  m_TagString: Human
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1923,6 +1876,18 @@ Prefab:
       propertyPath: m_Name
       value: Player Entities
       objectReference: {fileID: 0}
+    - target: {fileID: 1041647935289432, guid: 21894a0adfb264c53ae59f03a81c8151, type: 2}
+      propertyPath: m_TagString
+      value: Human
+      objectReference: {fileID: 0}
+    - target: {fileID: 1422349091372024, guid: 21894a0adfb264c53ae59f03a81c8151, type: 2}
+      propertyPath: m_TagString
+      value: Human
+      objectReference: {fileID: 0}
+    - target: {fileID: 1714251343600696, guid: 21894a0adfb264c53ae59f03a81c8151, type: 2}
+      propertyPath: m_TagString
+      value: Human
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 21894a0adfb264c53ae59f03a81c8151, type: 2}
   m_IsPrefabParent: 0
@@ -1939,7 +1904,7 @@ GameObject:
   - component: {fileID: 2018932954}
   m_Layer: 0
   m_Name: Building_Human
-  m_TagString: Building
+  m_TagString: Human
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

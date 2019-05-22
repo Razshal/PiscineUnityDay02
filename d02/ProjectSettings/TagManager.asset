@@ -5,7 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Tile
-  - Building
+  - Orc
+  - Human
   layers:
   - Default
   - TransparentFX
