@@ -191,7 +191,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!82 &285943490
 AudioSource:
   m_ObjectHideFlags: 0
@@ -283,6 +283,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3131adeaba4264452b3d18b1e3104bfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ignoreClick: 0
   aknowledge: {fileID: 8300000, guid: 11d6c1e4886ec47fea40e59e532ef29c, type: 3}
   selected: 0
   selectionScript: {fileID: 507160292}
@@ -472,7 +473,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!82 &446704341
 AudioSource:
   m_ObjectHideFlags: 0
@@ -564,6 +565,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3131adeaba4264452b3d18b1e3104bfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ignoreClick: 0
   aknowledge: {fileID: 8300000, guid: 11d6c1e4886ec47fea40e59e532ef29c, type: 3}
   selected: 0
   selectionScript: {fileID: 507160292}
@@ -778,6 +780,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3131adeaba4264452b3d18b1e3104bfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ignoreClick: 0
   aknowledge: {fileID: 8300000, guid: 11d6c1e4886ec47fea40e59e532ef29c, type: 3}
   selected: 0
   selectionScript: {fileID: 507160292}
@@ -881,7 +884,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &1725930745
 BoxCollider2D:
   m_ObjectHideFlags: 0
