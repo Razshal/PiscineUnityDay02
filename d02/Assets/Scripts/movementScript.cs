@@ -38,16 +38,16 @@ public class movementScript : MonoBehaviour {
             rotation.Normalize();
             transform.rotation = 
                 Quaternion.Euler(0f, 0f, Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg - 90);
+            animator.SetBool("move", true);
         }
         if (Vector2.Distance(transform.position, target) > 0.01f)
         {
 			transform.position = Vector2.MoveTowards(transform.position, target, 0.1f);
             status = Status.MOVING;
-            animator.SetTrigger("move");
         }
         else if (status != Status.STAY) {
             status = Status.STAY;
-            animator.ResetTrigger("move");
+            animator.SetBool("move", false);
         }
 	}
 }
