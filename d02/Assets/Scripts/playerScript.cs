@@ -8,17 +8,18 @@ public class playerScript : MonoBehaviour {
     private AudioSource audioSource;
     private Animator animator;
     private selectionScript selectionScript;
-    private GameObject ennemy;
-    private Ray ray;
     private float radians;
 
-    public bool ignoreClick = false;
+	public GameObject enemy;
     public AudioClip aknowledge;
+	public bool ignoreClick = false;
     public bool selected = false;
+    public float minDistance = 0.4f;
 
     public enum Status
     {
         STAY,
+        ATTACK,
         MOVING
     }
     public Status status;
@@ -54,25 +55,32 @@ public class playerScript : MonoBehaviour {
             if (Input.GetMouseButtonDown(0))
             {
                 PlayAudio(aknowledge);
-
-                target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                (relativeTarget = target - transform.position).Normalize();
-                radians = Mathf.Atan2(relativeTarget.y, relativeTarget.x) * Mathf.Rad2Deg - 90;
-                transform.rotation = Quaternion.Euler(0f, 0f, radians);
+                if (enemy)
+                    target = enemy.transform.position;
+                else
+                    target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 status = Status.MOVING;
             }
         } 
         else if (ignoreClick)
             ignoreClick = false;
-        
+
         // Set animation and translation
-        if (status == Status.MOVING && Vector2.Distance(transform.position, target) > 0.3f)
+        if (status == Status.MOVING
+            && Vector2.Distance(transform.position, target) > minDistance)
         {
             animator.SetBool("move", true);
+            relativeTarget = target - transform.position;
+            radians = Mathf.Atan2(relativeTarget.y, relativeTarget.x) * Mathf.Rad2Deg - 90;
+            transform.rotation = Quaternion.Euler(0f, 0f, radians);
             transform.position = Vector2.MoveTowards(transform.position, target, 0.1f);
         }
         else if (status != Status.STAY)
         {
+            if (enemy)
+            {
+                status = Status.ATTACK;
+            }
             status = Status.STAY;
             animator.SetBool("move", false);
         }
