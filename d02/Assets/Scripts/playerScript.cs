@@ -55,10 +55,7 @@ public class playerScript : MonoBehaviour {
             if (Input.GetMouseButtonDown(0))
             {
                 PlayAudio(aknowledge);
-                if (enemy && selectionScript.enemyFocus)
-                    target = enemy.transform.position;
-                else
-                    target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 status = Status.MOVING;
             }
         } 
@@ -69,6 +66,8 @@ public class playerScript : MonoBehaviour {
         if (status == Status.MOVING
             && Vector2.Distance(transform.position, target) > minDistance)
         {
+            if (enemy && !Input.GetMouseButtonDown(0))
+                target = enemy.transform.position;
             animator.SetBool("move", true);
             relativeTarget = target - transform.position;
             radians = Mathf.Atan2(relativeTarget.y, relativeTarget.x) * Mathf.Rad2Deg - 90;

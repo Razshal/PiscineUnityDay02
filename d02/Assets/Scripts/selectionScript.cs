@@ -30,7 +30,6 @@ public class selectionScript : MonoBehaviour {
     void Update () {
         if (Input.GetKeyDown(KeyCode.Mouse1))
             UnselectAll();
-
         if (enemyFocus)
             selectEnemy(enemyFocus);
         else if (Input.GetMouseButtonDown(0) && !enemyFocus)
