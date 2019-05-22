@@ -12,6 +12,7 @@ public class playerScript : MonoBehaviour {
 
 	public GameObject enemy;
     public AudioClip aknowledge;
+    public AudioClip fight;
 	public bool ignoreClick = false;
     public bool selected = false;
     public float minDistance = 0.4f;
@@ -24,12 +25,12 @@ public class playerScript : MonoBehaviour {
     }
     public Status status;
 
-	void Start () {
+    void Start () {
         status = Status.STAY;
         audioSource = GetComponent<AudioSource>();
         animator = GetComponent<Animator>();
         selectionScript = transform.parent.gameObject.GetComponent<selectionScript>();
-	}
+    }
 
     void PlayAudio(AudioClip clip) {
         audioSource.clip = clip;
@@ -48,7 +49,26 @@ public class playerScript : MonoBehaviour {
         }
     }
 
-    void Update () {
+    private void ResetAnimations()
+    {
+        animator.SetBool("move", status == Status.MOVING);
+        animator.SetBool("attack", status == Status.ATTACK);
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject == enemy)
+            status = Status.ATTACK;
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (enemy && collision.gameObject == enemy)
+            status = Status.MOVING;
+    }
+
+	void Update () {
+        ResetAnimations();
         if (!ignoreClick && selected)
         {
             // Set appropriate rotation
@@ -61,27 +81,19 @@ public class playerScript : MonoBehaviour {
         } 
         else if (ignoreClick)
             ignoreClick = false;
-
+        
         // Set animation and translation
         if (status == Status.MOVING
-            && Vector2.Distance(transform.position, target) > minDistance)
+            && (Vector2.Distance(transform.position, target) > minDistance || enemy))
         {
             if (enemy && !Input.GetMouseButtonDown(0))
                 target = enemy.transform.position;
-            animator.SetBool("move", true);
             relativeTarget = target - transform.position;
             radians = Mathf.Atan2(relativeTarget.y, relativeTarget.x) * Mathf.Rad2Deg - 90;
             transform.rotation = Quaternion.Euler(0f, 0f, radians);
             transform.position = Vector2.MoveTowards(transform.position, target, 0.1f);
         }
-        else if (status != Status.STAY)
-        {
-            if (enemy)
-            {
-                status = Status.ATTACK;
-            }
+        else if (status != Status.ATTACK && !enemy)
             status = Status.STAY;
-            animator.SetBool("move", false);
-        }
 	}
 }

@@ -18,7 +18,7 @@ public class selectionScript : MonoBehaviour {
             child.GetComponent<playerScript>().selected = false;
     }
 
-    public void selectEnemy(GameObject enemy)
+    public void SelectEnemy(GameObject enemy)
     {
         foreach (Transform child in transform)
         {
@@ -31,9 +31,9 @@ public class selectionScript : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.Mouse1))
             UnselectAll();
         if (enemyFocus)
-            selectEnemy(enemyFocus);
+            SelectEnemy(enemyFocus);
         else if (Input.GetMouseButtonDown(0) && !enemyFocus)
-            selectEnemy(null);
+            SelectEnemy(null);
         enemyFocus = null;
     }
 }
