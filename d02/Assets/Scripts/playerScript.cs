@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class playerScript : MonoBehaviour {
     private Vector3 target;
-    private Vector3 rotation;
+    private Vector3 relativeTarget;
     private AudioSource audioSource;
     private Animator animator;
     private selectionScript selectionScript;
     private GameObject ennemy;
+    private Ray ray;
+    private float radians;
 
     public bool ignoreClick = false;
     public AudioClip aknowledge;
@@ -51,12 +53,12 @@ public class playerScript : MonoBehaviour {
             // Set appropriate rotation
             if (Input.GetMouseButtonDown(0))
             {
-                target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-
                 PlayAudio(aknowledge);
-                (rotation = target - transform.position).Normalize();
-                transform.rotation =
-                    Quaternion.Euler(0f, 0f, Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg - 90);
+
+                target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                (relativeTarget = target - transform.position).Normalize();
+                radians = Mathf.Atan2(relativeTarget.y, relativeTarget.x) * Mathf.Rad2Deg - 90;
+                transform.rotation = Quaternion.Euler(0f, 0f, radians);
                 status = Status.MOVING;
             }
         } 
