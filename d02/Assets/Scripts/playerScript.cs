@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class playerScript : MonoBehaviour {
-    private Vector3 target;
+    public Vector3 target;
     private Vector3 relativeTarget;
     private AudioSource audioSource;
     private Animator animator;
@@ -55,7 +55,7 @@ public class playerScript : MonoBehaviour {
             if (Input.GetMouseButtonDown(0))
             {
                 PlayAudio(aknowledge);
-                if (enemy)
+                if (enemy && selectionScript.enemyFocus)
                     target = enemy.transform.position;
                 else
                     target = Camera.main.ScreenToWorldPoint(Input.mousePosition);

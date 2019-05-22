@@ -26,8 +26,8 @@ public class selectionScript : MonoBehaviour {
                 child.GetComponent<playerScript>().enemy = enemyFocus;
         }
     }
-	
-	void Update () {
+
+    void Update () {
         if (Input.GetKeyDown(KeyCode.Mouse1))
             UnselectAll();
 
@@ -36,5 +36,5 @@ public class selectionScript : MonoBehaviour {
         else if (Input.GetMouseButtonDown(0) && !enemyFocus)
             selectEnemy(null);
         enemyFocus = null;
-	}
+    }
 }
