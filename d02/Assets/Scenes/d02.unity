@@ -167,8 +167,8 @@ GameObject:
   m_Component:
   - component: {fileID: 238896246}
   - component: {fileID: 238896245}
-  - component: {fileID: 238896247}
   - component: {fileID: 238896248}
+  - component: {fileID: 238896249}
   m_Layer: 0
   m_Name: Building_Human
   m_TagString: Human
@@ -233,18 +233,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &238896247
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 238896244}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 349aeb6a31e994c3395be554a1a19e3b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  life: 100
 --- !u!61 &238896248
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -270,6 +258,24 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &238896249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 238896244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac110d1a0315d479b8d00c9eaa243540, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  life: 100
+  maxLife: 100
+  unitName: Human Building
+  selectionScript: {fileID: 0}
+  isBuilding: 1
+  isFriendly: 1
+  townCenter: {fileID: 1089025834}
 --- !u!1 &242515886
 GameObject:
   m_ObjectHideFlags: 0
@@ -279,11 +285,11 @@ GameObject:
   m_Component:
   - component: {fileID: 242515890}
   - component: {fileID: 242515889}
-  - component: {fileID: 242515888}
   - component: {fileID: 242515887}
+  - component: {fileID: 242515888}
   m_Layer: 0
   m_Name: Building_Orc
-  m_TagString: Orc
+  m_TagString: OrcBuilding
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -321,10 +327,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 242515886}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 349aeb6a31e994c3395be554a1a19e3b, type: 3}
+  m_Script: {fileID: 11500000, guid: ac110d1a0315d479b8d00c9eaa243540, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   life: 100
+  maxLife: 100
+  unitName: Orc Bulding
+  selectionScript: {fileID: 507160292}
+  isBuilding: 1
+  isFriendly: 0
+  townCenter: {fileID: 1338891622}
 --- !u!212 &242515889
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -558,11 +570,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3131adeaba4264452b3d18b1e3104bfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  target: {x: 0, y: 0, z: 0}
   enemy: {fileID: 0}
   aknowledge: {fileID: 8300000, guid: 11d6c1e4886ec47fea40e59e532ef29c, type: 3}
+  fight: {fileID: 0}
   ignoreClick: 0
   selected: 0
   minDistance: 0.4
+  attack: 5
   status: 0
 --- !u!95 &285943492
 Animator:
@@ -636,11 +651,11 @@ GameObject:
   m_Component:
   - component: {fileID: 333002616}
   - component: {fileID: 333002615}
-  - component: {fileID: 333002614}
   - component: {fileID: 333002613}
+  - component: {fileID: 333002614}
   m_Layer: 0
   m_Name: Building_Orc
-  m_TagString: Orc
+  m_TagString: OrcBuilding
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -678,10 +693,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 333002612}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 349aeb6a31e994c3395be554a1a19e3b, type: 3}
+  m_Script: {fileID: 11500000, guid: ac110d1a0315d479b8d00c9eaa243540, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   life: 100
+  maxLife: 100
+  unitName: Orc Bulding
+  selectionScript: {fileID: 507160292}
+  isBuilding: 1
+  isFriendly: 0
+  townCenter: {fileID: 1338891622}
 --- !u!212 &333002615
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -961,11 +982,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3131adeaba4264452b3d18b1e3104bfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  target: {x: 0, y: 0, z: 0}
   enemy: {fileID: 0}
   aknowledge: {fileID: 8300000, guid: 11d6c1e4886ec47fea40e59e532ef29c, type: 3}
+  fight: {fileID: 0}
   ignoreClick: 0
   selected: 0
   minDistance: 0.4
+  attack: 5
   status: 0
 --- !u!95 &446704343
 Animator:
@@ -1086,11 +1110,11 @@ GameObject:
   m_Component:
   - component: {fileID: 853473960}
   - component: {fileID: 853473959}
-  - component: {fileID: 853473958}
   - component: {fileID: 853473957}
+  - component: {fileID: 853473958}
   m_Layer: 0
   m_Name: Building_Orc
-  m_TagString: Orc
+  m_TagString: OrcBuilding
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1128,10 +1152,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 853473956}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 349aeb6a31e994c3395be554a1a19e3b, type: 3}
+  m_Script: {fileID: 11500000, guid: ac110d1a0315d479b8d00c9eaa243540, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   life: 100
+  maxLife: 100
+  unitName: Orc Bulding
+  selectionScript: {fileID: 507160292}
+  isBuilding: 1
+  isFriendly: 0
+  townCenter: {fileID: 1338891622}
 --- !u!212 &853473959
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1243,8 +1273,8 @@ GameObject:
   m_Component:
   - component: {fileID: 979084840}
   - component: {fileID: 979084839}
-  - component: {fileID: 979084841}
   - component: {fileID: 979084842}
+  - component: {fileID: 979084843}
   m_Layer: 0
   m_Name: Building_Human
   m_TagString: Human
@@ -1309,18 +1339,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &979084841
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 979084838}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 349aeb6a31e994c3395be554a1a19e3b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  life: 100
 --- !u!61 &979084842
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1346,6 +1364,24 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &979084843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 979084838}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac110d1a0315d479b8d00c9eaa243540, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  life: 100
+  maxLife: 100
+  unitName: Human Building
+  selectionScript: {fileID: 0}
+  isBuilding: 1
+  isFriendly: 1
+  townCenter: {fileID: 1089025834}
 --- !u!1 &1089025834
 GameObject:
   m_ObjectHideFlags: 0
@@ -1355,8 +1391,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1089025836}
   - component: {fileID: 1089025835}
-  - component: {fileID: 1089025837}
   - component: {fileID: 1089025838}
+  - component: {fileID: 1089025839}
   m_Layer: 0
   m_Name: Town Center_Human
   m_TagString: Human
@@ -1422,18 +1458,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1089025837
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1089025834}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 349aeb6a31e994c3395be554a1a19e3b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  life: 1000
 --- !u!61 &1089025838
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1459,6 +1483,24 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2, y: 2}
   m_EdgeRadius: 0
+--- !u!114 &1089025839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1089025834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac110d1a0315d479b8d00c9eaa243540, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  life: 1000
+  maxLife: 1000
+  unitName: Human Building
+  selectionScript: {fileID: 0}
+  isBuilding: 1
+  isFriendly: 1
+  townCenter: {fileID: 1089025834}
 --- !u!1 &1338891622
 GameObject:
   m_ObjectHideFlags: 0
@@ -1468,11 +1510,11 @@ GameObject:
   m_Component:
   - component: {fileID: 1338891626}
   - component: {fileID: 1338891625}
-  - component: {fileID: 1338891624}
   - component: {fileID: 1338891623}
+  - component: {fileID: 1338891624}
   m_Layer: 0
   m_Name: Town Center_Orc
-  m_TagString: Orc
+  m_TagString: OrcBuilding
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1510,10 +1552,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 1338891622}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 349aeb6a31e994c3395be554a1a19e3b, type: 3}
+  m_Script: {fileID: 11500000, guid: ac110d1a0315d479b8d00c9eaa243540, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   life: 1000
+  maxLife: 1000
+  unitName: Orc Bulding
+  selectionScript: {fileID: 507160292}
+  isBuilding: 1
+  isFriendly: 0
+  townCenter: {fileID: 1338891622}
 --- !u!212 &1338891625
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1683,11 +1731,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3131adeaba4264452b3d18b1e3104bfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  target: {x: 0, y: 0, z: 0}
   enemy: {fileID: 0}
   aknowledge: {fileID: 8300000, guid: 11d6c1e4886ec47fea40e59e532ef29c, type: 3}
+  fight: {fileID: 0}
   ignoreClick: 0
   selected: 0
   minDistance: 0.4
+  attack: 5
   status: 0
 --- !u!82 &1725930743
 AudioSource:
@@ -1873,8 +1924,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2018932952}
   - component: {fileID: 2018932951}
-  - component: {fileID: 2018932953}
   - component: {fileID: 2018932954}
+  - component: {fileID: 2018932955}
   m_Layer: 0
   m_Name: Building_Human
   m_TagString: Human
@@ -1939,18 +1990,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2018932953
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2018932950}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 349aeb6a31e994c3395be554a1a19e3b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  life: 100
 --- !u!61 &2018932954
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1976,6 +2015,24 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.5, y: 1.5}
   m_EdgeRadius: 0
+--- !u!114 &2018932955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2018932950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac110d1a0315d479b8d00c9eaa243540, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  life: 100
+  maxLife: 100
+  unitName: Human Building
+  selectionScript: {fileID: 0}
+  isBuilding: 1
+  isFriendly: 1
+  townCenter: {fileID: 1089025834}
 --- !u!1 &2119615791
 GameObject:
   m_ObjectHideFlags: 0

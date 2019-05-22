@@ -9,6 +9,8 @@ public class playerScript : MonoBehaviour {
     private Animator animator;
     private selectionScript selectionScript;
     private float radians;
+    private float attackTimer;
+    public float attackRate = 2;
 
 	public GameObject enemy;
     public AudioClip aknowledge;
@@ -16,6 +18,7 @@ public class playerScript : MonoBehaviour {
 	public bool ignoreClick = false;
     public bool selected = false;
     public float minDistance = 0.4f;
+    public int attack = 5;
 
     public enum Status
     {
@@ -29,7 +32,11 @@ public class playerScript : MonoBehaviour {
         status = Status.STAY;
         audioSource = GetComponent<AudioSource>();
         animator = GetComponent<Animator>();
-        selectionScript = transform.parent.gameObject.GetComponent<selectionScript>();
+        selectionScript = transform
+            .parent
+            .gameObject
+            .GetComponent<selectionScript>();
+        attackTimer = attackRate;
     }
 
     void PlayAudio(AudioClip clip) {
@@ -58,7 +65,18 @@ public class playerScript : MonoBehaviour {
     private void OnCollisionStay2D(Collision2D collision)
     {
         if (collision.gameObject == enemy)
+        {
             status = Status.ATTACK;
+            if (attackTimer <= 0)
+            {
+                collision
+                    .gameObject
+                    .GetComponent<enemyScript>()
+                    .ReceiveDamages(attack);
+                PlayAudio(fight);
+                attackTimer = attackRate;
+            }
+        }
     }
 
     private void OnCollisionExit2D(Collision2D collision)
@@ -95,5 +113,8 @@ public class playerScript : MonoBehaviour {
         }
         else if (status != Status.ATTACK && !enemy)
             status = Status.STAY;
+
+        if (status == Status.ATTACK)
+            attackTimer -= Time.deltaTime;
 	}
 }
