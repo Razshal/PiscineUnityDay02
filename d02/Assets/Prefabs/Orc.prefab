@@ -187,6 +187,7 @@ MonoBehaviour:
   isBuilding: 0
   isFriendly: 0
   townCenter: {fileID: 0}
+  death: {fileID: 8300000, guid: ecc6df5e38e6b4fcb93c0ba729d9e42d, type: 3}
 --- !u!212 &212385795179454494
 SpriteRenderer:
   m_ObjectHideFlags: 1

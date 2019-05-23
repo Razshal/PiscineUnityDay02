@@ -276,6 +276,7 @@ MonoBehaviour:
   isBuilding: 1
   isFriendly: 1
   townCenter: {fileID: 1089025834}
+  death: {fileID: 0}
 --- !u!1 &242515886
 GameObject:
   m_ObjectHideFlags: 0
@@ -338,6 +339,7 @@ MonoBehaviour:
   isBuilding: 1
   isFriendly: 0
   townCenter: {fileID: 1338891622}
+  death: {fileID: 8300000, guid: ecc6df5e38e6b4fcb93c0ba729d9e42d, type: 3}
 --- !u!212 &242515889
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -786,6 +788,7 @@ MonoBehaviour:
   isBuilding: 1
   isFriendly: 0
   townCenter: {fileID: 1338891622}
+  death: {fileID: 8300000, guid: ecc6df5e38e6b4fcb93c0ba729d9e42d, type: 3}
 --- !u!212 &333002615
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1327,6 +1330,7 @@ MonoBehaviour:
   isBuilding: 1
   isFriendly: 0
   townCenter: {fileID: 1338891622}
+  death: {fileID: 8300000, guid: ecc6df5e38e6b4fcb93c0ba729d9e42d, type: 3}
 --- !u!212 &853473959
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1627,6 +1631,7 @@ MonoBehaviour:
   isBuilding: 1
   isFriendly: 1
   townCenter: {fileID: 1089025834}
+  death: {fileID: 0}
 --- !u!1 &1089025834
 GameObject:
   m_ObjectHideFlags: 0
@@ -1746,6 +1751,7 @@ MonoBehaviour:
   isBuilding: 1
   isFriendly: 1
   townCenter: {fileID: 1089025834}
+  death: {fileID: 0}
 --- !u!1 &1338891622
 GameObject:
   m_ObjectHideFlags: 0
@@ -1808,6 +1814,7 @@ MonoBehaviour:
   isBuilding: 1
   isFriendly: 0
   townCenter: {fileID: 1338891622}
+  death: {fileID: 8300000, guid: ecc6df5e38e6b4fcb93c0ba729d9e42d, type: 3}
 --- !u!212 &1338891625
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2324,6 +2331,11 @@ Prefab:
       propertyPath: selectionScript
       value: 
       objectReference: {fileID: 507160292}
+    - target: {fileID: 114361470067149844, guid: eaa2377e8659d468084d3bb5f9302f62,
+        type: 2}
+      propertyPath: death
+      value: 
+      objectReference: {fileID: 8300000, guid: ecc6df5e38e6b4fcb93c0ba729d9e42d, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: eaa2377e8659d468084d3bb5f9302f62, type: 2}
   m_IsPrefabParent: 0
@@ -2445,6 +2457,7 @@ MonoBehaviour:
   isBuilding: 1
   isFriendly: 1
   townCenter: {fileID: 1089025834}
+  death: {fileID: 0}
 --- !u!1 &2119615791
 GameObject:
   m_ObjectHideFlags: 0
