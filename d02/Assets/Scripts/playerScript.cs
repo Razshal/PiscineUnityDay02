@@ -64,7 +64,7 @@ public class playerScript : MonoBehaviour {
 
     private void OnCollisionStay2D(Collision2D collision)
     {
-        if (collision.gameObject == enemy)
+        if (collision.gameObject == enemy && !enemy.GetComponent<enemyScript>().isFriendly)
         {
             status = Status.ATTACK;
             if (attackTimer <= 0)

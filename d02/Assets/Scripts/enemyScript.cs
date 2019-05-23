@@ -46,6 +46,4 @@ public class enemyScript : MonoBehaviour {
         else
             Debug.Log(unitName + " [" + life + "/" + maxLife + "]HP has been attacked");
     }
-
-
 }
